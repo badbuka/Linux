@@ -1,3 +1,5 @@
+# MYSQL CHEATSHEET
+
 #### mysql all databases size in mb 
 
 ``` SELECT table_schema AS "Database", 
