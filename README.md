@@ -25,10 +25,12 @@ ORDER BY (data_length + index_length) DESC;
 
 #### Below is the Query to find all the tables which have MyISAM Engine
 
-```SELECT TABLE_SCHEMA as DbName ,TABLE_NAME as TableName ,ENGINE as Engine FROM information_schema.TABLES WHERE ENGINE='MyISAM' AND TABLE_SCHEMA NOT IN('mysql','information_schema','performance_schema');
+```
+SELECT TABLE_SCHEMA as DbName ,TABLE_NAME as TableName ,ENGINE as Engine FROM information_schema.TABLES WHERE ENGINE='MyISAM' AND TABLE_SCHEMA NOT IN('mysql','information_schema','performance_schema');
 ```
 
 #### For how to convert your existing MyISAM tables to InnoDB Below is the Query that will Return ALTER Statements to convert existing MyISAM Tables to InnoDB.
 
-```SELECT CONCAT('ALTER TABLE `', TABLE_SCHEMA,'`.`',TABLE_NAME, '` ENGINE = InnoDB;') FROM information_schema.TABLES WHERE ENGINE='MyISAM' AND TABLE_SCHEMA NOT IN('mysql','information_schema','performance_schema');
+```
+SELECT CONCAT('ALTER TABLE `', TABLE_SCHEMA,'`.`',TABLE_NAME, '` ENGINE = InnoDB;') FROM information_schema.TABLES WHERE ENGINE='MyISAM' AND TABLE_SCHEMA NOT IN('mysql','information_schema','performance_schema');
 ```
