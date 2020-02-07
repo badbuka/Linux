@@ -1,5 +1,25 @@
 # MYSQL CHEATSHEET
 
+#### dump out the database mydb into mydb_schema.sql and mydb_data.sql
+```
+mysqldump -uroot -p --no-data  -R --triggers mydb > mydb_schema.sql
+```
+#### Then dump out the data:
+```
+mysqldump -uroot -p --no-create-info  -R --triggers mydb > mydb_data.sql
+```
+#### create the database
+```
+mysql -uroot -p -e "create database mydb"
+```
+#### create the schema
+```
+mysql -uroot -p mydb < mydb_schema.sql
+```
+#### load in the data
+`
+mysql -uroot -p mydb < mydb_data.sql
+`
 #### mysql all databases size in mb 
 
 ``` SELECT table_schema AS "Database", 
