@@ -22,27 +22,20 @@ mysql -uroot -p mydb < mydb_data.sql
 `
 #### mysql all databases size in mb 
 
-``` SELECT table_schema AS "Database", 
-ROUND(SUM(data_length + index_length) / 1024 / 1024, 2) AS "Size (MB)" 
-FROM information_schema.TABLES 
-GROUP BY table_schema; 
+``` 
+SELECT table_schema AS "Database", ROUND(SUM(data_length + index_length) / 1024 / 1024, 2) AS "Size (MB)" FROM information_schema.TABLES GROUP BY table_schema; 
 ```
 
 #### mysql all databases size in gb
 
-```SELECT table_schema AS "Database", 
-ROUND(SUM(data_length + index_length) / 1024 / 1024 / 1024, 2) AS "Size (GB)" 
-FROM information_schema.TABLES 
-GROUP BY table_schema;
+```
+SELECT table_schema AS "Database", ROUND(SUM(data_length + index_length) / 1024 / 1024 / 1024, 2) AS "Size (GB)" FROM information_schema.TABLES GROUP BY table_schema;
 ```
 
 #### Sizes of all of the tables in a specific database/  Replace database_name with the name of the database that you want to check:
 
-```SELECT table_name AS "Table",
-ROUND(((data_length + index_length) / 1024 / 1024), 2) AS "Size (MB)"
-FROM information_schema.TABLES
-WHERE table_schema = "database_name"
-ORDER BY (data_length + index_length) DESC;
+```
+SELECT table_name AS "Table", ROUND(((data_length + index_length) / 1024 / 1024), 2) AS "Size (MB)" FROM information_schema.TABLES WHERE table_schema = "database_name" ORDER BY (data_length + index_length) DESC;
 ```
 
 #### Below is the Query to find all the tables which have MyISAM Engine
