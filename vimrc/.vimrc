@@ -44,6 +44,7 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 set showmode
+set backspace=indent,eol,start
 set autoindent
 set nohlsearch
 set tabstop=4
@@ -53,4 +54,4 @@ map <F2> i#!/bin/bash<ESC>
 map <F3> o#This file was created by <ESC>:r!whoami<ESC>kJ
 map <F4> o#The last modyfy on <ESC>:r!date "+\%x"<ESC>kJ
 map <F5> o#This script is created for:
-map <F6> execute 'w !sudo tee % > /dev/null' <bar> edit!
+command! W execute 'w !sudo tee % > /dev/null' <bar> edit!<bar> edit!
