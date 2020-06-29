@@ -1,6 +1,6 @@
 # PSQL
 
-###Magic words:
+### Magic words:
 ```
 psql -U postgres
 ```
@@ -86,8 +86,8 @@ There are many CREATE choices, like CREATE DATABASE __database_name__, CREATE TA
 ```
     SELECT * FROM pg_indexes WHERE tablename='__table_name__' AND schemaname='__schema_name__';: Show table indexes
 ```
-```
-    Get all indexes from all tables of a schema:
+
+Get all indexes from all tables of a schema:
 ```
 SELECT
    t.relname AS table_name,
@@ -110,18 +110,18 @@ ORDER BY
    t.relname,
    i.relname
 ```
-    Execution data:
+   Execution data:
         Queries being executed at a certain DB:
 ```
 SELECT datname, application_name, pid, backend_start, query_start, state_change, state, query 
   FROM pg_stat_activity 
   WHERE datname='__database_name__';
 ```
-    Get all queries from all dbs waiting for data (might be hung):
+   Get all queries from all dbs waiting for data (might be hung):
 ```
 SELECT * FROM pg_stat_activity WHERE waiting='t'
 ```
-    Currently running queries with process pid:
+   Currently running queries with process pid:
 ```
 SELECT pg_stat_get_backend_pid(s.backendid) AS procpid, 
   pg_stat_get_backend_activity(s.backendid) AS current_query
@@ -148,9 +148,9 @@ Generating random data (source):
 ```
 ### Tools
 
-    ptop and pg_top: top for PG. Available on the APT repository from apt.postgresql.org.
-    pg_activity: Command line tool for PostgreSQL server activity monitoring.
-    Unix-like reverse search in psql:
+   ptop and pg_top: top for PG. Available on the APT repository from apt.postgresql.org.
+   pg_activity: Command line tool for PostgreSQL server activity monitoring.
+   Unix-like reverse search in psql:
 ```
 $ echo "bind "^R" em-inc-search-prev" > $HOME/.editrc
 $ source $HOME/.editrc
