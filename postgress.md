@@ -37,6 +37,10 @@ psql -U postgres
     grant __test2__ to __test1__;: Allow __test1__ to set its role as __test2__.
 ```
 ## Configuration
+### Recofigure
+```
+psql -U postgres -c "SELECT pg_reload_conf();"
+```
 
 ###    Service management commands:
 ```
