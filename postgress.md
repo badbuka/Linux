@@ -35,6 +35,12 @@ psql -U postgres
     create role __test2__ noinherit login password __passsword__;: Create a role with username and password.
     set role __test__;: Change role for current session to __test__.
     grant __test2__ to __test1__;: Allow __test1__ to set its role as __test2__.
+    \ddu: display default privileges
+```
+Command to alter default privileges
+```
+ALTER DEFAULT PRIVILEGES IN SCHEMA public FOR ROLE username GRANT SELECT ON SEQUENCES TO another_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public FOR ROLE username GRANT SELECT ON TABLES TO another_user;
 ```
 ## Configuration
 ### Recofigure
